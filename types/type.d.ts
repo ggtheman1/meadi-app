@@ -137,3 +137,18 @@ declare interface DriverCardProps {
   selected: number;
   setSelected: () => void;
 }
+
+declare interface Chef {
+  chef_id: string;
+  name: string;
+  email: string;
+  location: string;
+  specialties: string[];
+  experience_years: number;
+  average_rating: number;
+  total_reviews: number;
+  languages_spoken: string[];
+  dishes: Dish[];
+  performance: Performance;
+  bookings: Booking[];
+}
