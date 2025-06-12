@@ -1,10 +1,11 @@
 import CustomButton from "@/components/CustomButton";
+import Dropdown from "@/components/Dropdown";
 import InputField from "@/components/InputField";
 import OAuth from "@/components/OAuth";
 import { icons, images } from "@/constants/idex";
 import { useSignUp } from "@clerk/clerk-expo";
 import { Link, router } from "expo-router";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Alert, Image, ScrollView, Text, View } from "react-native";
 import { ReactNativeModal } from "react-native-modal";
 
@@ -15,7 +16,10 @@ const SignUp = () => {
     email: "",
     password: "",
   });
-
+  const [role, setRole] = useState({
+    customer: "",
+    chef: "",
+  });
   const [verification, setVerification] = useState({
     state: "",
     error: "",
@@ -132,7 +136,9 @@ const SignUp = () => {
             secureTextEntry={true}
             onChangeText={(value) => setForm({ ...form, password: value })}
           />
+          {/* Add role selector drop down with chef and customer here */}
 
+          <Dropdown />
           <CustomButton
             title="Sign Up"
             onPress={onSignUpPress}
